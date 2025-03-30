@@ -1,0 +1,81 @@
+// HACK: TOKEN: a reusable, modular piece of design information, such as color values, typography, spacing, or motion settings. These tokens are abstracted and stored in a format that can be used across projects, ensuring consistency and scalability.
+
+/* Colors */
+:root {
+  --clr-primary: #333; //background
+  --clr-secondary: #4a4a4a; //text and footer background
+  --clr-tertiary: #a98c5f; //text of tertiary weight
+  --clr-quaternary: #fafafa; //text of secondary weight
+  --clr-border: #808080; //border
+
+  // --clr-dominant: #24437e;
+  // --clr-complementary: #b8d0ec;
+  // --clr-accent: #f1f1e6;
+  // --clr-success: ;
+  // --clr-error: ;
+  // --clr-warning: ;
+
+  // --clr-primary: #2584ff;
+  // --clr-secondary: #00d9ff;
+  // --clr-accent: #ff3400;
+  // --clr-headings: #1b0760;
+  // --clr-body: #918ca4;
+  // --clr-body-darker: #5c5577;
+  // --clr-border: #ccc;
+}
+
+/* Font Sizes Tokens */
+// @link https://utopia.fyi/type/calculator?c=320,16,1.333,1240,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
+:root {
+  --step--2: clamp(0.5628rem, 0.5138rem + 0.2447vw, 0.7035rem); //9-11px
+  --step--1: clamp(0.7502rem, 0.685rem + 0.3262vw, 0.9377rem); //12-15px
+  --step-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem); //16-20px
+  --step-1: clamp(1.333rem, 1.2171rem + 0.5796vw, 1.6663rem); //21-26px
+  --step-2: clamp(1.7769rem, 1.6224rem + 0.7726vw, 2.2211rem); //28-35px
+  --step-3: clamp(2.3686rem, 2.1626rem + 1.0298vw, 2.9607rem); //38-47px
+  --step-4: clamp(3.1573rem, 2.8828rem + 1.3728vw, 3.9467rem); //50-63px
+  --step-5: clamp(4.2087rem, 3.8428rem + 1.8299vw, 5.2609rem); //67-84px
+}
+// HACK: Common Type Scale Ratios
+// Major Second (1.125): Subtle, minimal contrast
+// Minor Third (1.2): Slightly more noticeable contrast
+// Major Third (1.25): Balanced, moderate contrast
+// NOTE: Perfect Fourth (1.333): Classical typographic scale
+// Golden Ratio (1.618): Dramatic, high contrast
+
+/* Spacing */
+/* @link https://utopia.fyi/space/calculator?c=320,16,1.333,1240,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem); //4-5px
+  --space-2xs: clamp(0.5rem, 0.4565rem + 0.2174vw, 0.625rem); //8-10px
+  --space-xs: clamp(0.75rem, 0.6848rem + 0.3261vw, 0.9375rem); //12-15px
+  --space-s: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem); //16-20px
+  --space-m: clamp(1.5rem, 1.3696rem + 0.6522vw, 1.875rem); //24-30px
+  --space-l: clamp(2rem, 1.8261rem + 0.8696vw, 2.5rem); //32-40px
+  --space-xl: clamp(3rem, 2.7391rem + 1.3043vw, 3.75rem); //48-60px
+  --space-2xl: clamp(4rem, 3.6522rem + 1.7391vw, 5rem); //64-80px
+  --space-3xl: clamp(6rem, 5.4783rem + 2.6087vw, 7.5rem); //96-120px
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.25rem, 0.1196rem + 0.6522vw, 0.625rem); //4-10px
+  --space-2xs-xs: clamp(0.5rem, 0.3478rem + 0.7609vw, 0.9375rem); //8-15px
+  --space-xs-s: clamp(0.75rem, 0.5761rem + 0.8696vw, 1.25rem); //12-20px
+  --space-s-m: clamp(1rem, 0.6957rem + 1.5217vw, 1.875rem); //16-30px
+  --space-m-l: clamp(1.5rem, 1.1522rem + 1.7391vw, 2.5rem); //24-40px
+  --space-l-xl: clamp(2rem, 1.3913rem + 3.0435vw, 3.75rem); //32-60px
+  --space-xl-2xl: clamp(3rem, 2.3043rem + 3.4783vw, 5rem); //48-80px
+  --space-2xl-3xl: clamp(4rem, 2.7826rem + 6.087vw, 7.5rem); //64-120px
+
+  /* Custom pairs */
+  --space-s-l: clamp(1rem, 0.4783rem + 2.6087vw, 2.5rem); //16-40px
+}
+
+//NOTE: rem: This unit is relative to the font size of the root element (<html>). It remains consistent across the document, providing a reliable baseline for sizing.=>stick to rem for font-size
+//NOTE: em: This unit is relative to the font size of its parent element. Its value can vary depending on the inheritance chain, making it more flexible but sometimes less predictable. ※for padding/margin, it is referencing the font size of that element, not of the parent.
+// NOTE: px for sizing is not recommended as it does not respond to change of browser base font size.
+//  NOTE: use of vw alone to define font size: it looks at only viewport width, so you cannot zoom in or out - accessibility issue
+//  NOTE: combination of rem + vw makes the transition less dramatic
+
+// REVIEW: https://www.color-site.com/schemes
+// REVIEW: https://mycolor.space/

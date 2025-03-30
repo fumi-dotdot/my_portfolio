@@ -1,0 +1,266 @@
+@use "../util/" as u;
+
+/* BOILERPLATE*/
+html {
+  font-size: 100%;
+}
+body {
+  font-family: "Oswald", "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  line-height: 1.8;
+  color: var(--clr-primary);
+  background: var(--clr-quaternary);
+}
+::selection {
+  background: var(--clr-primary);
+  color: #fff;
+}
+// NOTE:  ::selection is a pseudo-element used to style the portion of a webpage that a user highlights or selects with their cursor.
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:where(h1, h2, h3) {
+  color: var(--clr-primary);
+  margin: 0;
+  text-wrap: pretty;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: var(--step-4);
+  line-height: 1.05;
+}
+h2 {
+  font-size: var(--step-2);
+  line-height: 1.1;
+}
+h3 {
+  font-size: var(--step-0);
+  line-height: 1.1;
+}
+:where(p, ol, ul, a, label, input, textarea) {
+  font-size: var(--step-0);
+  // text-wrap: balance;
+}
+ol,
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+.link-arrow {
+  color: var(--clr-accent);
+  text-transform: uppercase;
+  font-size: var(--step-0);
+  font-weight: bold;
+}
+.link-arrow::after {
+  content: "-->";
+  margin-left: 5px;
+  transition: margin 0.15s;
+}
+.link-arrow:hover::after {
+  margin-left: 10px;
+}
+
+/* VERTICAL SPACING PADDING-BLOCK*/
+.pbl-space-3xs {
+  padding-block: var(--space-3xs);
+}
+.pbl-space-2xs {
+  padding-block: var(--space-2xs);
+}
+.pbl-space-xs {
+  padding-block: var(--space-xs);
+}
+.pbl-space-s {
+  padding-block: var(--space-s);
+}
+.pbl-space-m {
+  padding-block: var(--space-m);
+}
+.pbl-space-l {
+  padding-block: var(--space-l);
+}
+.pbl-space-xl {
+  padding-block: var(--space-xl);
+}
+.pbl-space-2xl {
+  padding-block: var(--space-2xl);
+}
+.pbl-space-3xl {
+  padding-block: var(--space-3xl);
+}
+.pbl-space-xl-2xl {
+  padding-block: var(--space-xl-2xl);
+}
+/* VERTICAL SPACING PADDING-TOP*/
+.pt-space-3xs {
+  padding-top: var(--space-3xs);
+}
+.pt-space-2xs {
+  padding-top: var(--space-2xs);
+}
+.pt-space-xs {
+  padding-top: var(--space-xs);
+}
+.pt-space-s {
+  padding-top: var(--space-s);
+}
+.pt-space-m {
+  padding-top: var(--space-m);
+}
+.pt-space-l {
+  padding-top: var(--space-l);
+}
+.pt-space-xl {
+  padding-top: var(--space-xl);
+}
+.pt-space-2xl {
+  padding-top: var(--space-2xl);
+}
+.pt-space-3xl {
+  padding-top: var(--space-3xl);
+}
+.pt-space-xl-2xl {
+  padding-top: var(--space-xl-2xl);
+}
+/* VERTICAL SPACING PADDING-BOTTOM*/
+.pb-space-3xs {
+  padding-bottom: var(--space-3xs);
+}
+.pb-space-2xs {
+  padding-bottom: var(--space-2xs);
+}
+.pb-space-xs {
+  padding-bottom: var(--space-xs);
+}
+.pb-space-s {
+  padding-bottom: var(--space-s);
+}
+.pb-space-m {
+  padding-bottom: var(--space-m);
+}
+.pb-space-l {
+  padding-bottom: var(--space-l);
+}
+.pb-space-xl {
+  padding-bottom: var(--space-xl);
+}
+.pb-space-2xl {
+  padding-bottom: var(--space-2xl);
+}
+.pb-space-3xl {
+  padding-bottom: var(--space-3xl);
+}
+.pb-space-xl-2xl {
+  padding-bottom: var(--space-xl-2xl);
+}
+
+/* VERTICAL SPACING MARGIN-BLOCK*/
+.mbl-space-3xs {
+  margin-block: var(--space-3xs);
+}
+.mbl-space-2xs {
+  margin-block: var(--space-2xs);
+}
+.mbl-space-xs {
+  margin-block: var(--space-xs);
+}
+.mbl-space-s {
+  margin-block: var(--space-s);
+}
+.mbl-space-m {
+  margin-block: var(--space-m);
+}
+.mbl-space-l {
+  margin-block: var(--space-l);
+}
+.mbl-space-xl {
+  margin-block: var(--space-xl);
+}
+.mbl-space-2xl {
+  margin-block: var(--space-2xl);
+}
+.mbl-space-3xl {
+  margin-block: var(--space-3xl);
+}
+.mbl-space-xl-2xl {
+  margin-block: var(--space-xl-2xl);
+}
+/* VERTICAL SPACING MARGIN-TOP*/
+.mt-space-3xs {
+  margin-top: var(--space-3xs);
+}
+.mt-space-2xs {
+  margin-top: var(--space-2xs);
+}
+.mt-space-xs {
+  margin-top: var(--space-xs);
+}
+.mt-space-s {
+  margin-top: var(--space-s);
+}
+.mt-space-m {
+  margin-top: var(--space-m);
+}
+.mt-space-l {
+  margin-top: var(--space-l);
+}
+.mt-space-xl {
+  margin-top: var(--space-xl);
+}
+.mt-space-2xl {
+  margin-top: var(--space-2xl);
+}
+.mt-space-3xl {
+  margin-top: var(--space-3xl);
+}
+.mt-space-xl-2xl {
+  margin-top: var(--space-xl-2xl);
+}
+/* VERTICAL SPACING MARGIN-BOTTOM*/
+.mb-space-3xs {
+  margin-bottom: var(--space-3xs);
+}
+.mb-space-2xs {
+  margin-bottom: var(--space-2xs);
+}
+.mb-space-xs {
+  margin-bottom: var(--space-xs);
+}
+.mb-space-s {
+  margin-bottom: var(--space-s);
+}
+.mb-space-m {
+  margin-bottom: var(--space-m);
+}
+.mb-space-l {
+  margin-bottom: var(--space-l);
+}
+.mb-space-xl {
+  margin-bottom: var(--space-xl);
+}
+.mb-space-2xl {
+  margin-bottom: var(--space-2xl);
+}
+.mb-space-3xl {
+  margin-bottom: var(--space-3xl);
+}
+.mb-space-xl-2xl {
+  margin-bottom: var(--space-xl-2xl);
+}
+/* VERTICAL SPACING */
+.pi-space-l-xl {
+  padding-inline: var(--space-l-xl); //used in wrapper in cafe website
+}
+// NOTE: -block VERTICAL SPACING: to add vertical (in the block dimension) breathing room between sections
+// NOTE: -inline HORIZONTAL SPACING: to add horizontal (the direction of text flow within a line) breathing room for

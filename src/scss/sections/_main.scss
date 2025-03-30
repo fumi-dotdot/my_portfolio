@@ -1,0 +1,406 @@
+@use "../util/" as u;
+@use "../global/" as g;
+
+/* HERO*/
+
+.hero {
+  padding-top: u.rem(88);
+  @include u.breakpoint(medium) {
+    padding-top: 0;
+  }
+  &__content {
+    background-image: url(../img/sp/img_hero.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-position: center;
+    // background-attachment: fixed;
+    padding: u.rem(128) u.rem(32) u.rem(32) u.rem(32);
+    @include u.breakpoint(medium) {
+      background-image: url(../img/img_hero.png);
+    }
+  }
+  &__content-wrap {
+    // display: inline-block; /* Allows the width to shrink to fit the content */
+    width: fit-content; /* Shrinks to fit the content */
+    border-radius: u.rem(20);
+    padding: u.rem(40);
+  }
+  .glass-effect {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  }
+}
+/* COMMON*/
+/* desktop用navigation設定*/
+@include u.breakpoint(medium) {
+  .wrapper {
+    display: flex;
+  }
+  .main {
+    flex-grow: 1;
+  }
+  .header {
+    position: relative;
+    flex-grow: 0;
+    flex-basis: 300px;
+    padding: u.rem(20) u.rem(20);
+    &__container {
+      position: sticky;
+      top: u.rem(50);
+    }
+    &__logo {
+      padding: 0;
+      margin: 0 auto;
+    }
+    &__logo .icon {
+      height: u.rem(90);
+    }
+    &__menu-button {
+      display: none;
+    }
+    &__content {
+      border: none;
+    }
+  }
+  // タブレットやスマホはマウスホバーではなく、「タップ」⇒ホバーアニメーションは不要
+  .button {
+    transition: background 0.3s, color 0.3s, opacity 0.3s;
+    &:hover {
+      background: #fff;
+      .button__icon-path {
+        fill: var(--clr-primary);
+      }
+      .button__text {
+        color: var(--clr-primary);
+      }
+    }
+    &--bg {
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+// 最後のボタン(twitter)のホバーは.buttonの設定にて済
+/* headerとmainタグを横並びにさせるための仕掛けーそのためにfooterはmainの内側に配置*/
+.container {
+  padding-block: u.rem(48);
+}
+.section__inner {
+  padding-inline: u.rem(32);
+  // @include u.breakpoint(medium) {
+  //   max-width: calc(u.rem(880) + u.rem(32 * 2));
+  //   margin: 0 auto;
+  // }
+  // これをするとmain全体の余白が右に出てくる結果に
+}
+.section__content {
+  @include u.breakpoint(medium) {
+    max-width: calc(u.rem(880) + u.rem(32 * 2));
+    margin: var(--space-l) auto;
+  }
+}
+.hero__heading {
+  font-size: var(--step-4);
+  line-height: 1.4;
+}
+.section__heading {
+  @extend .hero__heading;
+}
+.hero__text {
+  max-width: 75ch;
+  font-size: var(--step-0);
+  & span {
+    font-size: var(--step-1);
+    font-weight: 700;
+  }
+}
+/* SERVICE*/
+.section__heading-sub {
+  display: block;
+  font-size: var(--step-0);
+}
+.service__list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: u.rem(30);
+  justify-content: center;
+  align-items: stretch; //stretches items to fill the container's height
+  @include u.breakpoint(medium) {
+    flex-direction: row;
+  }
+}
+.service__item {
+  border: 1px solid var(--clr-border);
+  padding-block: u.rem(20);
+  flex: 0 0 100%; /* Each item takes 100% of the width by default */
+  @include u.breakpoint(medium) {
+    flex: 0 0 30%; /* makes the item take up 50% of the container's width, without allowing it to grow or shrink */
+  }
+}
+.service__item-img {
+  text-align: center;
+  margin-block: var(--space-xs);
+}
+.service__item-name {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: var(--space-xs);
+}
+.service__item-text {
+  text-align: left;
+  margin-bottom: var(--space-xs);
+}
+/* WORKS*/
+.works__list {
+  @extend .service__list;
+}
+.works__item {
+  padding-block: u.rem(20);
+  flex: 0 0 100%; /* Each item takes 100% of the width by default */
+  @include u.breakpoint(medium) {
+    flex: 0 0 48%; /* makes the item take up 50% of the container's width, without allowing it to grow or shrink */
+  }
+}
+.works__item-img {
+  @extend .service__item-img;
+}
+.works__item-img img {
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.1); /* Enlarges the image on hover */
+  }
+}
+// Wrap the Image in an Anchor Tag to make an image clickable
+.works__link {
+  display: inline-block;
+  position: relative;
+}
+.works__item-img span {
+  position: absolute;
+  bottom: 3%; /* Adjust position as needed */
+  right: 8%; /* Position the arrow */
+}
+.works__item-img img {
+  width: 90%;
+  height: auto;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
+}
+.about__img img {
+  background-color: transparent;
+}
+.works__item-name {
+  @extend .service__item-name;
+}
+.works__item-text {
+  text-align: center;
+  @extend .service__item-text;
+}
+.works__link {
+  text-decoration: underline;
+}
+/* ABOUT*/
+.section__content-about {
+  @extend .service__list;
+}
+.section__content-about.reverse {
+  @include u.breakpoint(medium) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex: 0 0 50%;
+  }
+}
+.about__img {
+  position: relative;
+  & .about__img-text {
+    position: absolute;
+    top: 12%;
+    left: 15%;
+  }
+}
+
+/* WORKFLOW*/
+.flow__list {
+  @include u.breakpoint(medium) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: u.rem(32);
+  }
+  @include u.breakpoint(large) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: u.rem(32);
+  }
+}
+.flow__item {
+  @include u.breakpoint(medium) {
+    padding: var(--step--1);
+    border: 1px solid var(--clr-border);
+    position: relative;
+  }
+}
+.flow__item-img {
+  @extend .service__item-img;
+}
+.flow__item-name {
+  @extend .service__item-name;
+}
+.flow__item-text {
+  @extend .service__item-text;
+}
+.flow__item-num {
+  width: u.rem(48);
+  height: u.rem(48);
+  font-size: u.rem(24);
+  text-align: center;
+  background: var(--clr-primary);
+  color: #fff;
+  margin-inline: auto;
+  margin-bottom: var(--space-xs);
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(
+    -50%
+  ); /* shifting the element leftward by 50% of its own width for precise centering */
+}
+/* MESSAGE*/
+
+.section__content-message {
+  border: 1px solid var(--clr-border);
+}
+.form-item:first-child {
+  margin-top: 0;
+}
+.form-item {
+  width: 70%;
+  margin: var(--space-m) auto;
+}
+.form-item > label {
+  display: block;
+  color: var(--clr-primary);
+  margin-top: var(--space-m);
+}
+.form-item > input {
+  width: 100%;
+  height: u.rem(50);
+  border-radius: 6px;
+  border: 1px solid var(--clr-border);
+  margin-top: u.rem(10);
+}
+.form-item input::placeholder,
+.form-item textarea::placeholder {
+  padding: u.rem(10) u.rem(15);
+}
+.form-required {
+  color: #fff;
+  font-size: var(--step--1);
+  margin-left: u.rem(15);
+  padding: u.rem(5);
+  background-color: var(--clr-tertiary);
+}
+.form-checkbox {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--clr-border);
+  padding: u.rem(15);
+  margin-top: u.rem(10);
+}
+.form-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 0 0.5em;
+  position: relative;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+}
+
+.form-checkbox label::before,
+.form-checkbox label:has(:checked)::after {
+  content: "";
+}
+
+.form-checkbox label::before {
+  width: u.rem(20);
+  height: u.rem(20);
+  border-radius: 3px;
+  border: 1px solid var(--clr-border);
+  background-color: var(--clr-quaternary);
+}
+
+.form-checkbox label:has(:checked)::before {
+  background-color: var(--clr-secondary);
+}
+
+.form-checkbox label:has(:checked)::after {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  transform: rotate(45deg);
+  width: 8px;
+  height: 16px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+}
+
+.form-checkbox input {
+  display: none;
+}
+.form-item textarea {
+  height: auto;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--clr-border);
+  margin-top: u.rem(10);
+}
+.form-item.send-btn {
+  max-width: u.rem(200);
+  margin: u.rem(40) auto 0;
+}
+.form-item.send-btn input {
+  background-color: var(--clr-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.form-item.send-btn input:hover {
+  background-color: #fff;
+  color: var(--clr-primary);
+  border: 1px solid var(--clr-border);
+  transition: all 0.3s;
+}
+/* PAGE-BOTTOM*/
+.page-bottom {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  justify-content: center;
+  align-items: center;
+  @include u.breakpoint(medium) {
+    flex-direction: row;
+  }
+}
+.page-bottom__item {
+  padding-block: u.rem(54);
+  text-align: center;
+  flex: 0 0 100%; /* Each item takes 100% of the width by default */
+  @include u.breakpoint(medium) {
+    flex: 0 0 50%; /* makes the item take up 50% of the container's width, without allowing it to grow or shrink */
+  }
+  &--contact {
+    background: var(--clr-border);
+  }
+  &--twitter {
+    background: var(--clr-secondary);
+  }
+  & .section__heading {
+    color: #fff;
+  }
+}

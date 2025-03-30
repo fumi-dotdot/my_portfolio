@@ -1,0 +1,78 @@
+@use "../util/" as u;
+
+// TODO: Bring in from snippets by typing "hamburger" in component.html.
+// test
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center;
+}
+.header {
+  padding: u.rem(40);
+  background: black;
+}
+nav ul {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav li:first-child {
+  margin-right: auto;
+}
+// これでロゴだけが左寄せになる
+nav a {
+  /* height: 100%; */
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 1rem 2rem;
+}
+nav a:hover {
+  color: aqua;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: u.rem(250);
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.308);
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  /* display: flex; */
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.sidebar li,
+.sidebar a {
+  width: 100%;
+}
+/* これで入れ子構造を簡単にできる一方、navbarの間隔は一定 space-betweenとは違う */
+.menu-button {
+  display: none;
+}
+@media screen and (max-width: u.rem(700)) {
+  .hideOnMobile {
+    display: none;
+  }
+  .menu-button {
+    display: block;
+  }
+}
+@media screen and (max-width: u.rem(400)) {
+  .sidebar {
+    width: 100%;
+  }
+}

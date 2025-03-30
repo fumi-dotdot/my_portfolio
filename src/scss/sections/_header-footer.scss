@@ -1,0 +1,111 @@
+@use "../util/" as u;
+@use "../global/" as g;
+
+body.is-fixed {
+  // overflow: hidden;
+}
+.icon {
+  width: auto;
+  height: u.rem(60);
+}
+.button {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  padding: u.rem(6) u.rem(10) u.rem(6) u.rem(30);
+  width: u.rem(160);
+  margin: 0 auto;
+
+  &__icon {
+    width: u.rem(24);
+    display: flex;
+    align-items: center;
+  }
+  &__icon-large {
+    width: u.rem(48);
+    height: u.rem(48);
+    display: flex;
+    align-items: center;
+    background-color: var(--clr-primary);
+    & svg {
+      width: 48px;
+      height: 48px;
+    }
+  }
+  &__icon-path {
+    fill: #fff; /* svgファイルpathの色指定のところにclassをあてる*/
+    &--contact {
+      fill: var(--clr-secondary);
+    }
+  }
+  &__text {
+    margin-left: u.rem(10);
+    font-size: u.rem(16);
+    letter-spacing: 0.08em;
+    color: #fff;
+  }
+  &--bg {
+    background: #fff;
+    .button__text {
+      color: var(--clr-primary);
+    }
+  }
+  &--border {
+    border: 1px solid #fff;
+    .button__text {
+      color: #fff;
+    }
+  }
+}
+.section__desc {
+  max-width: 85ch;
+  // text-wrap: balance;
+  text-wrap: pretty;
+}
+
+/* HEADER*/
+.header {
+  background: var(--clr-primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+
+  &__logo {
+    display: inline-block;
+    padding: 14px 24px;
+    font-size: u.rem(20);
+  }
+  &__menu-button {
+    border: none;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 30px;
+    height: 36px;
+    overflow: hidden;
+    color: transparent;
+    background: url(../img/bg_menu-close.png) center center no-repeat;
+    background-size: 100% auto;
+  }
+  &__menu-button.is-checked {
+    background: url(../img/bg_menu.png) center center no-repeat;
+    background-size: 100% auto;
+  }
+  &__content {
+    height: calc(100vh - 88px);
+    border-top: 1px solid #fff;
+  }
+  // icon60px+padding14*2=88px
+  &__nav-item {
+    & + & {
+      margin-top: u.rem(24);
+    }
+  }
+}
+/* FOOTER*/
+.footer__copy {
+  display: block;
+  text-align: center;
+}

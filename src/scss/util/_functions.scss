@@ -1,0 +1,19 @@
+@use "sass:math";
+
+// division in Sass is done with the math.div() function math.div($number1, $number2)
+
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) * 1rem;
+  } @else {
+    @error 'Don\'t use units when using the rem() function; only numbers.';
+  }
+}
+
+@function em($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) * 1em;
+  } @else {
+    @error 'Don\'t use units when using the em() function; only numbers.';
+  }
+}

@@ -1,0 +1,78 @@
+@use "../util/" as u;
+
+// TODO: Bring in from snippets by typing "moshnav" in component.html.
+/* Navigation Bar */
+.nav {
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-inline: var(--space-s);
+  align-items: center;
+  &__list {
+    width: 100%;
+    margin: 0;
+    @include u.breakpoint(medium) {
+      width: auto;
+      display: flex;
+      max-height: 100%;
+      opacity: 1;
+    }
+  }
+  &__item {
+    padding: u.rem(5) u.rem(20);
+    border: 1px solid #222;
+    @include u.breakpoint(medium) {
+      border: 0;
+    }
+  }
+  &__item > a {
+    color: #d2d0db;
+    transition: color 0.3s;
+  }
+  &__item > a:hover {
+    color: #fff;
+  }
+  &__toggler {
+    opacity: 0.5;
+    transition: box-shadow 0.15s;
+    cursor: pointer;
+    @include u.breakpoint(medium) {
+      display: none;
+    }
+  }
+  &__item > a {
+    color: #d2d0db;
+  }
+  &__brand {
+    transform: translateY(5px);
+  }
+}
+
+/* Icons */
+.icon {
+  width: u.rem(40);
+  height: u.rem(40);
+  &--white {
+    fill: #fff;
+  }
+}
+/* Collapsibles */
+.collapsible__content {
+  /* display: none; */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.collapsible--expanded .collapsible__content {
+  /* display: block; */
+  max-height: 100vh;
+  opacity: 1;
+}
+.nav.collapsible--expanded .nav__toggler {
+  opacity: 1;
+  box-shadow: 0 0 0 3px #666;
+  border-radius: 5px;
+}
+// applies styles to .collapsible__content only if it exists inside an element with the collapsible--expanded class.
