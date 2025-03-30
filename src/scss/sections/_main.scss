@@ -137,7 +137,7 @@
 }
 .service__item {
   border: 1px solid var(--clr-border);
-  padding-block: u.rem(20);
+  padding: u.rem(20) u.rem(10);
   flex: 0 0 100%; /* Each item takes 100% of the width by default */
   @include u.breakpoint(medium) {
     flex: 0 0 30%; /* makes the item take up 50% of the container's width, without allowing it to grow or shrink */

@@ -613,7 +613,7 @@ a {
 
 .service__item {
   border: 1px solid var(--clr-border);
-  padding-block: 1.25rem;
+  padding: 1.25rem 0.625rem;
   flex: 0 0 100%; /* Each item takes 100% of the width by default */
 }
 @media (min-width: 48em) {
