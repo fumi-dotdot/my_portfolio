@@ -306,7 +306,7 @@
   height: u.rem(48);
   font-size: u.rem(24);
   text-align: center;
-  background: var(--clr-primary);
+  background: var(--clr-secondary);
   color: #fff;
   margin-inline: auto;
   margin-bottom: var(--space-xs);
@@ -415,7 +415,7 @@
   margin: u.rem(40) auto 0;
 }
 .form-item.send-btn input {
-  background-color: var(--clr-primary);
+  background-color: var(--clr-tertiary);
   color: #fff;
   border: none;
   border-radius: 6px;

@@ -397,7 +397,7 @@ a {
   height: 2.5rem;
   display: flex;
   align-items: center;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-secondary);
 }
 .button__icon-large svg {
   width: 40px;
@@ -784,7 +784,7 @@ a {
   height: 3rem;
   font-size: 1.5rem;
   text-align: center;
-  background: var(--clr-primary);
+  background: var(--clr-secondary);
   color: #fff;
   margin-inline: auto;
   margin-bottom: var(--space-xs);
@@ -904,7 +904,7 @@ a {
 }
 
 .form-item.send-btn input {
-  background-color: var(--clr-primary);
+  background-color: var(--clr-tertiary);
   color: #fff;
   border: none;
   border-radius: 6px;
