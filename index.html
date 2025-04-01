@@ -660,53 +660,55 @@
             </div>
             <div class="section__content-message pbl-space-2xl">
               <div class="message__form">
-                <div class="form-item">
-                  <label id="your-name">
-                    お名前
-                    <span class="form-required">必須</span>
-                  </label>
-                  <input type="text" placeholder="記入　例子" />
-                </div>
-                <div class="form-item">
-                  <label id="your-mail">
-                    メールアドレス
-                    <span class="form-required">必須</span>
-                  </label>
-                  <input type="text" placeholder="〇〇〇〇@gmail.com" />
-                  <label id="inquiry">
-                    ご依頼事項
-                    <span class="form-required">複数選択可</span>
-                  </label>
-                  <div class="form-checkbox">
-                    <label>
-                      <input type="checkbox" name="form-checkbox" checked />
-                      ホームページ制作
+                <form action="form-handler.php" method="POST">
+                  <div class="form-item">
+                    <label id="your-name">
+                      お名前
+                      <span class="form-required">必須</span>
                     </label>
-                    <label>
-                      <input type="checkbox" name="form-checkbox" />
-                      ホームページ修正
-                    </label>
-                    <label>
-                      <input type="checkbox" name="form-checkbox" />
-                      ホームページまわり相談
-                    </label>
+                    <input type="text" placeholder="記入　例子" />
                   </div>
-                  <label id="your-content">
-                    お問い合せ内容
-                    <span class="form-required">必須</span>
-                  </label>
-                  <textarea
-                    name="your-content"
-                    id="your-content"
-                    cols="30"
-                    rows="10"
-                    placeholder="できるだけ具体的にご記載ください。"
-                  ></textarea>
-                </div>
+                  <div class="form-item">
+                    <label id="your-mail">
+                      メールアドレス
+                      <span class="form-required">必須</span>
+                    </label>
+                    <input type="text" placeholder="〇〇〇〇@gmail.com" />
+                    <label id="inquiry">
+                      ご依頼事項
+                      <span class="form-required">複数選択可</span>
+                    </label>
+                    <div class="form-checkbox">
+                      <label>
+                        <input type="checkbox" name="form-checkbox" checked />
+                        ホームページ制作
+                      </label>
+                      <label>
+                        <input type="checkbox" name="form-checkbox" />
+                        ホームページ修正
+                      </label>
+                      <label>
+                        <input type="checkbox" name="form-checkbox" />
+                        ホームページまわり相談
+                      </label>
+                    </div>
+                    <label id="your-content">
+                      お問い合せ内容
+                      <span class="form-required">必須</span>
+                    </label>
+                    <textarea
+                      name="your-content"
+                      id="your-content"
+                      cols="30"
+                      rows="10"
+                      placeholder="できるだけ具体的にご記載ください。"
+                    ></textarea>
+                  </div>
 
-                <div class="form-item send-btn">
-                  <input type="submit" value="送信する" />
-                </div>
+                  <div class="form-item send-btn">
+                    <input type="submit" value="送信する" />
+                  </div>
+                </form>
               </div>
             </div>
           </div>
