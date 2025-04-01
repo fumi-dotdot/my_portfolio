@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $content = $_POST["your-content"];
 
     // Replace with the recipient email
-    $to = "recipient@example.com";
+    $to = "watanaf9184@gmail.com";
     $subject = "New Inquiry Received";
     $message = "Name: $name\nEmail: $email\nInquiry: $inquiry\nContent:\n$content";
     $headers = "From: $email";
@@ -18,3 +18,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
