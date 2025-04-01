@@ -22,14 +22,14 @@ body.is-fixed {
     align-items: center;
   }
   &__icon-large {
-    width: u.rem(48);
-    height: u.rem(48);
+    width: u.rem(40);
+    height: u.rem(40);
     display: flex;
     align-items: center;
     background-color: var(--clr-primary);
     & svg {
-      width: 48px;
-      height: 48px;
+      width: 40px;
+      height: 40px;
     }
   }
   &__icon-path {
@@ -65,7 +65,7 @@ body.is-fixed {
 
 /* HEADER*/
 .header {
-  background: var(--clr-primary);
+  background: var(--clr-secondary);
   position: fixed;
   top: 0;
   left: 0;

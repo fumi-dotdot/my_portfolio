@@ -153,12 +153,14 @@
 }
 .service__item {
   border: 1px solid var(--clr-border);
+  background-color: #fff;
   padding: u.rem(20) u.rem(10);
   flex: 0 0 100%; /* Each item takes 100% of the width by default */
   @include u.breakpoint(medium) {
     flex: 0 0 30%; /* makes the item take up 50% of the container's width, without allowing it to grow or shrink */
   }
 }
+
 .service__item-img {
   text-align: center;
   margin-block: var(--space-xs);
@@ -171,6 +173,33 @@
 .service__item-text {
   text-align: left;
   margin-bottom: var(--space-xs);
+}
+/* PLAN*/
+.plan__list {
+  @extend .service__list;
+}
+.plan__item {
+  @extend .service__item;
+  @include u.breakpoint(medium) {
+    flex: 0 0 47%;
+  }
+}
+.plan__item-img {
+  @extend .service__item-img;
+}
+.plan__item-name {
+  @extend .service__item-name;
+}
+.plan__item-text {
+  @extend .service__item-text;
+}
+.plan__link {
+  display: block;
+  text-align: right;
+  padding-right: u.rem(20);
+  & span {
+    display: inline-block;
+  }
 }
 /* WORKS*/
 .works__list {
@@ -207,9 +236,6 @@
   height: auto;
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
 }
-.about__img img {
-  background-color: transparent;
-}
 .works__item-name {
   @extend .service__item-name;
 }
@@ -240,6 +266,9 @@
     left: 15%;
   }
 }
+.about__img img {
+  background-color: transparent;
+}
 
 /* WORKFLOW*/
 .flow__list {
@@ -255,6 +284,7 @@
   }
 }
 .flow__item {
+  background-color: #fff;
   @include u.breakpoint(medium) {
     padding: var(--step--1);
     border: 1px solid var(--clr-border);
@@ -322,6 +352,7 @@
   background-color: var(--clr-tertiary);
 }
 .form-checkbox {
+  background-color: #fff;
   width: 100%;
   border-radius: 6px;
   border: 1px solid var(--clr-border);
