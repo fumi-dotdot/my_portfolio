@@ -92,7 +92,7 @@
 // 最後のボタン(twitter)のホバーは.buttonの設定にて済
 /* headerとmainタグを横並びにさせるための仕掛けーそのためにfooterはmainの内側に配置*/
 .container {
-  padding-block: u.rem(48);
+  padding-block: u.rem(32);
 }
 .section__inner {
   padding-inline: u.rem(32);
@@ -121,23 +121,18 @@
 }
 .hero__text {
   max-width: 75ch;
-  font-size: var(--step--1);
+  font-size: var(--step-0);
   & span {
-    font-size: var(--step-0);
+    font-size: var(--step-1);
     font-weight: 700;
-  }
-  @include u.breakpoint(medium) {
-    max-width: 75ch;
-    font-size: var(--step-0);
-    & span {
-      font-size: var(--step-1);
-      font-weight: 700;
-    }
   }
 }
 /* SERVICE*/
 .section__heading-sub {
   display: block;
+  font-size: var(--step-0);
+}
+.section__desc {
   font-size: var(--step-0);
 }
 .service__list {
@@ -255,26 +250,18 @@
   text-decoration: underline;
 }
 /* ABOUT*/
-.section__content-about {
-  @extend .service__list;
-}
 .section__content-about.reverse {
-  @include u.breakpoint(small) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  gap: u.rem(15);
+  justify-content: center;
+  align-items: center;
+  @include u.breakpoint(large) {
     flex-direction: row-reverse;
     justify-content: space-between;
     flex-wrap: nowrap;
     flex: 0 0 50%;
-  }
-}
-.about__img {
-  position: relative;
-  & .about__img-text {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    @include u.breakpoint(small) {
-      left: 15%;
-    }
   }
 }
 .about__img img {
@@ -283,6 +270,9 @@
 
 /* WORKFLOW*/
 .flow__list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: u.rem(32);
   @include u.breakpoint(medium) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

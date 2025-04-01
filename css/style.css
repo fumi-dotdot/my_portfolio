@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* Colors */
 :root {
-  --clr-primary: #46494c;
+  --clr-primary: #383b3d;
   --clr-secondary: #4c5c68;
   --clr-tertiary: #1985a1;
   --clr-quaternary: #ebebeb;
@@ -569,7 +569,7 @@ a {
 }
 /* headerとmainタグを横並びにさせるための仕掛けーそのためにfooterはmainの内側に配置*/
 .container {
-  padding-block: 3rem;
+  padding-block: 2rem;
 }
 
 .section__inner {
@@ -596,21 +596,11 @@ a {
 
 .hero__text {
   max-width: 75ch;
-  font-size: var(--step--1);
+  font-size: var(--step-0);
 }
 .hero__text span {
-  font-size: var(--step-0);
+  font-size: var(--step-1);
   font-weight: 700;
-}
-@media (min-width: 48em) {
-  .hero__text {
-    max-width: 75ch;
-    font-size: var(--step-0);
-  }
-  .hero__text span {
-    font-size: var(--step-1);
-    font-weight: 700;
-  }
 }
 
 /* SERVICE*/
@@ -619,7 +609,11 @@ a {
   font-size: var(--step-0);
 }
 
-.service__list, .section__content-about, .works__list, .plan__list {
+.section__desc {
+  font-size: var(--step-0);
+}
+
+.service__list, .works__list, .plan__list {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -628,7 +622,7 @@ a {
   align-items: stretch;
 }
 @media (min-width: 48em) {
-  .service__list, .section__content-about, .works__list, .plan__list {
+  .service__list, .works__list, .plan__list {
     flex-direction: row;
   }
 }
@@ -732,7 +726,15 @@ a {
 }
 
 /* ABOUT*/
-@media (min-width: ) {
+.section__content-about.reverse {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  gap: 0.9375rem;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 56.25em) {
   .section__content-about.reverse {
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -741,25 +743,16 @@ a {
   }
 }
 
-.about__img {
-  position: relative;
-}
-.about__img .about__img-text {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-}
-@media (min-width: ) {
-  .about__img .about__img-text {
-    left: 15%;
-  }
-}
-
 .about__img img {
   background-color: transparent;
 }
 
 /* WORKFLOW*/
+.flow__list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
 @media (min-width: 48em) {
   .flow__list {
     display: grid;
