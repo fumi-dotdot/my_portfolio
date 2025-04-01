@@ -318,7 +318,10 @@
   ); /* shifting the element leftward by 50% of its own width for precise centering */
 }
 /* MESSAGE*/
-
+#message .section__desc span {
+  color: red;
+  font-weight: 700;
+}
 .section__content-message {
   border: 1px solid var(--clr-border);
 }
