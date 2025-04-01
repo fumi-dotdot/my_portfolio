@@ -814,6 +814,10 @@ a {
 }
 
 /* MESSAGE*/
+#message .section__desc span {
+  color: red;
+  font-weight: 700;
+}
 .section__content-message {
   border: 1px solid var(--clr-border);
 }
