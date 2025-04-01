@@ -259,7 +259,7 @@
   @extend .service__list;
 }
 .section__content-about.reverse {
-  @include u.breakpoint(medium) {
+  @include u.breakpoint(small) {
     flex-direction: row-reverse;
     justify-content: space-between;
     flex-wrap: nowrap;
@@ -270,8 +270,11 @@
   position: relative;
   & .about__img-text {
     position: absolute;
-    top: 12%;
-    left: 15%;
+    top: 10%;
+    left: 10%;
+    @include u.breakpoint(small) {
+      left: 15%;
+    }
   }
 }
 .about__img img {

@@ -732,7 +732,7 @@ a {
 }
 
 /* ABOUT*/
-@media (min-width: 48em) {
+@media (min-width: ) {
   .section__content-about.reverse {
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -746,8 +746,13 @@ a {
 }
 .about__img .about__img-text {
   position: absolute;
-  top: 12%;
-  left: 15%;
+  top: 10%;
+  left: 10%;
+}
+@media (min-width: ) {
+  .about__img .about__img-text {
+    left: 15%;
+  }
 }
 
 .about__img img {
